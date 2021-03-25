@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'reac
 
 
 
-export default function Main() {
+export default function Main({ navigation }) {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -14,12 +14,13 @@ export default function Main() {
     }
   
     const cadastrar = () => {
-      alert('Ir para página de cadastro');
+    navigation.navigate('Cadastro') ;
     }
 
     const recuperar = () => {
-        alert('Ir para página de recuperação de senha');
-      }
+      alert('Ir para página de recuperação de senha')
+    navigation.navigate('Recuperar');
+    }
   
     return (
       <>
@@ -58,9 +59,11 @@ export default function Main() {
         </TouchableOpacity>
         </View>          
         
-        <TouchableOpacity  onPress={()=>recuperar()}>
+        
+        <TouchableOpacity style={styles.recuperar} onPress={()=>recuperar()}>
           <Text style = {{color:'black', textAlign:'center', marginTop:34}}>Recuperar senha</Text>
         </TouchableOpacity>
+        
       </View>
       </>
     );
@@ -95,7 +98,6 @@ export default function Main() {
       height: 32,
       borderRadius: 15,
       backgroundColor: '#FBBC05',
-      //right: 10,
       justifyContent: 'center',
     },
   
@@ -108,6 +110,6 @@ export default function Main() {
       justifyContent: 'center',
       
     },
+  }
   
-  
-  });
+);
